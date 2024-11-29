@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb}
+
+\usepackage{amsmath}
+\title{CS215 Assingment2}
+\author{Tejas Chaudhari}
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 4}
+\subsection*{Task A}
+
+\textbf{Intuition}
+\newline
+We can say that the $\mathbb{E}[X]$ is the "mean" value. So, if we take we fix the values of $X$ and take very large $a$ in comparison to the $\mathbb{E}[X]$, intuitively, the probability that $X$ exceeds $a$ is very less. This is clearly seen in the given inequality.
+\newline
+On the other hand, if we take a to be very small if compared to the $\mathbb{E}[X]$, intuitively, the probability that $X$ exceeds $a$ should be higher. The Markov Inequality quantifies this behaviour.
+\newline
+\newline
+\textbf{Proof}
+\newline
+We will prove this inequality using contradiction. Assume that the inequality does not hold. Take an  $\epsilon > 0$ such that: 
+\[
+\mathbb{P}(X \geq a) = \frac{\mathbb{E}[X]}{a} + \epsilon,
+\]
+We can split the expectation \(\mathbb{E}[X]\) in two intervals:
+\[
+\mathbb{E}[X] = \mathbb{E}[X \mid X < a] \cdot \mathbb{P}(X < a) + \mathbb{E}[X \mid X \geq a] \cdot \mathbb{P}(X \geq a).
+\]
+From the assumption, we have:
+\[ \mathbb{P}(X < a) = 1 - \left( \frac{\mathbb{E}[X]}{a} + \epsilon \right).
+\]
+Since \(X \geq a\) in the second case, we know that:
+\[
+\mathbb{E}[X \mid X \geq a] \geq a.
+\]
+The second term expectation can be bounded as:
+\[
+\mathbb{E}[X \mid X \geq a] \cdot \mathbb{P}(X \geq a) \geq a \cdot \mathbb{P}(X \geq a) = a \left( \frac{\mathbb{E}[X]}{a} + \epsilon \right) = \mathbb{E}[X] + a \epsilon.
+\]
+For the first part,  \(\mathbb{E}[X \mid X < a] > 0\). Hence:
+\[
+\mathbb{E}[X \mid X < a] \cdot \mathbb{P}(X < a) > 0.
+\]
+Now, putting everything together, we get the total expectation:
+\[
+\mathbb{E}[X] > 0+ \mathbb{E}[X] + a \epsilon 
+\]
+\[
+\mathbb{E}[X] > \mathbb{E}[X] + a \epsilon 
+\]
+This is a contradiction since $\epsilon > 0$.
+Thus, we conclude that:
+\[
+\mathbb{P}(X \geq a) \leq \frac{\mathbb{E}[X]}{a}.
+\]
+% Proving the Chebyshev Cantelli Inequality.
+\subsection*{Task B}
+\
+\[
+\mathbb{P}((X - \mu)^2 \geq a^2) \leq \frac{\mathbb{E}[(X - \mu)^2]}{a^2}.
+\]
+Let us begin with transforming $\mathbb{P}[(X - \mu) \geq \tau]$ into the form on which we can apply Markov Inequality.
+
+It is obvious that
+\[
+\mathbb{P}[(X - \mu) \geq \tau] \leq \mathbb{P}((X - \mu)^2 \geq \tau^2) 
+\]
+Take $Y=(X-\mu)$
+
+Apply Markov Inequality to this:
+\[
+\mathbb{P}((X - \mu)^2 \geq \tau^2) \leq \frac{\mathbb{E}[(X - \mu)^2]}{\tau^2}
+\]
+\section{}
+\end{document}

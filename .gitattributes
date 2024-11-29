@@ -1,0 +1,7 @@
+archive filter=lfs diff=lfs merge=lfs -text
+cancer filter=lfs diff=lfs merge=lfs -text
+cancer-dataset.zip filter=lfs diff=lfs merge=lfs -text
+utk-dataset.zip filter=lfs diff=lfs merge=lfs -text
+a1q7/2_pareto_chart/rows.csv filter=lfs diff=lfs merge=lfs -text
+a1q7/1_violin_plot/age_gender.csv filter=lfs diff=lfs merge=lfs -text
+Assignment1/a1q7/2_pareto_chart/rows.csv filter=lfs diff=lfs merge=lfs -text
